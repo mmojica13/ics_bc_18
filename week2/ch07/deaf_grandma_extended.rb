@@ -1,17 +1,27 @@
-puts "Oh hello sweetie! How nice of you to visit Grandma!"
-puts "How are you?"
-response = gets.chomp
-while response == response.downcase
-  puts "HUH??!! SPEAK UP HONEY!"
-  if response == response.upcase
-    puts "NO, NOT SINCE 19" + rand(2) + rand(10) + "!"
-    if response == "BYE BYE BYE" || "bye bye bye"
-      puts "OH..."
-      puts "YOU MUST BE BUSY, WELL BYE-BYE SWEETIE!"
-      puts "COME AND VISIT SOON!"
-    else
-      puts " *pretends not to hear*"
-      puts "WHAT?!"
-    end
+puts "Oh hello sweetie! How nice of yout to visit Grandma!"
+response = "hello"
+while true
+  response = gets.chomp
+  if response != response.upcase
+    puts "HUH?! SPEAK UP, DEAR!"
+  elsif response == "BYE"
+    break
+  else
+    puts "NO, NOT SINCE 19" + rand(30...50).to_s +  "!"
   end
 end
+puts " "
+puts "<pretends not to hear you saying bye>"
+puts " "
+goodbye = "bye"
+while true
+  goodbye = gets.chomp
+  if goodbye != goodbye.upcase
+    puts "WHADYA SAY, HONEY?"
+  elsif goodbye == "BYE BYE BYE"
+    break
+  else
+    puts "SPEAK UP PLEASE!"
+  end
+end
+puts "OH... okay dear, Goodbye. Come back and visit me soon!"
