@@ -1,12 +1,13 @@
-puts "Oh hello sweetie! How nice of you to visit Grandma!"
-puts "How are you?"
-response = gets.chomp
-while response == response.downcase
-  puts "HUH??!! SPEAK UP HONEY!"
-  if response == response.upcase
-    puts "NO, NOT SINCE 19" + rand(2) + rand(10) + "!"
-    if response == "BYE"
-      puts "OK! WELL BYE-BYE GRANDBABY! VISIT ME SOON!"
-    end
+puts "Oh hello sweetie! How nice of yout to visit Grandma!"
+response = "hello"
+while true
+  response = gets.chomp
+  if response != response.upcase
+    puts "HUH?! SPEAK UP, DEAR!"
+  elsif response == "BYE"
+    break
+  else
+    puts "NO, NOT SINCE 19" + rand(30...50).to_s +  "!"
   end
 end
+puts "OKAY, GOODBYE SWEETIE!"
