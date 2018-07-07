@@ -1,9 +1,9 @@
 def array_sum(array)
-  if ______________________
-    array[0]
+  if array == []
+    0
   else
-    ______________________
+    array.pop + array_sum(array)
   end
 end
 
-puts array_sum [__, __, ...] 
+puts array_sum([2, 9, 4]) #15
