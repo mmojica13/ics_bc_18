@@ -3,18 +3,61 @@ def english_number(number)
   return 'zero' if number == 0
   # No more special cases! No more returns!
   num_string = '' # This is the string we will return.
-  ones_place = %w[one two three four five six
+  ones_place = %w[ one two three four five six
                   seven eight nine]
   tens_place = %w[ten twenty thirty forty fifty
                   sixty seventy eighty ninety]
   teenagers = %w[eleven twelve thirteen
                  fourteen fifteen sixteen seventeen eighteen nineteen]
-  # "left" is how much of the number
-  # we still have left to write out.
-  # "write" is the part we are
-  # writing out right now.
-  # write and left...get it? :)
+  # "left" is how much of the number we still have left to write out.
+  # "write" is the part we are writing out right now.
+
+  #trillions
   left = number
+  write = left / 1_000_000_000_000
+  left -= write*1_000_000_000_000
+  if write > 0
+    trillions = english_number write
+    num_string = num_string + trillions + " trillion"
+    if left > 0
+      num_string = num_string + " "
+    end
+  end
+
+  #billions
+  write = left / 1_000_000_000
+  left -= write*1_000_000_000
+  if write > 0
+    billions = english_number write
+    num_string = num_string + billions + " billion"
+    if left > 0
+      num_string = num_string + " "
+    end
+  end
+
+#millions
+  write = left / 1_000_000
+  left -= write*1_000_000
+  if write > 0
+    millions = english_number write
+    num_string = num_string + millions + " million"
+    if left > 0
+      num_string = num_string + " "
+    end
+  end
+
+  #thousands
+  write = left / 1000
+  left -= write*1000
+  if write > 0
+    thousands = english_number write
+    num_string = num_string + thousands + " thousand"
+    if left > 0
+      num_string = num_string + " "
+    end
+  end
+
+  #hundreds
   write = left / 100 # How many hundreds left?
   left -= write * 100 # Subtract off those hundreds.
   if write > 0
@@ -73,4 +116,4 @@ puts english_number(101)
 puts english_number(234)
 puts english_number(3211)
 puts english_number(999_999)
-puts english_number(1_000_000_000_000)
+puts english_number(2_000_000_000_000)
