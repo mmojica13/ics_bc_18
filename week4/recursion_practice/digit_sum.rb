@@ -1,9 +1,9 @@
-def digit_sum(num, ___)
-  if ______________________
-    ______________________
+def digit_sum(num, len)
+  if len == 1
+    num[0]
   else
-    ______________________
+    num[0] + num[1]
   end
 end
 
-puts digit_sum __, __ 
+puts digit_sum([30, 20], 2)
