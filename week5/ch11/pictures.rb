@@ -2,8 +2,7 @@
 ###  pictures moved. I recommend using an absolute filepath.
 ###
 ### An example for mac could be '/Users/username/Desktop/pic_dst'
-### An example for PC could be 'C:/Users/username/Desktop/pic_dst'
-Dir.chdir '<destination>'
+Dir.chdir '/Users/josemojica/Desktop/new_location'
 
 # First we find all of the pictures to be moved.
 ### In the next line you want the source
@@ -11,8 +10,7 @@ Dir.chdir '<destination>'
 ###  final folder that ends in '.jpg' and stash it in an array.
 ###
 ### An example for mac could be '/Users/username/Desktop/pic_src/**/*.{JPG,jpg}'
-### An example for PC could be 'C:/Users/username/Desktop/pic_src/**/*.{JPG,jpg}'
-pic_names = Dir['<source>']
+pic_names = Dir['/Users/josemojica/Desktop/start_folder/*.{jpg}']
 
 puts 'What would you like to call this batch?'
 batch_name = gets.chomp
@@ -29,10 +27,18 @@ pic_names.each do |name|
     "#{batch_name}#{pic_number}.jpg"
   end
 
-  # Now where were we? Oh, yeah...
+  ####my additon
+if File.exist? new_name
+  puts
+  puts "DANGER: file names already exist!"
+  puts
+  exit
+else  # Now where were we? Oh, yeah...
   File.rename name, new_name
+end
   # Finally, we increment the counter.
   pic_number += 1
 end
 puts # This is so we aren't on progress bar line.
 puts 'Done, cutie!'
+puts pic_names.to_s
