@@ -103,3 +103,25 @@ class Dragon
 end
 
 # Make it interactive!
+pet = Dragon.new "Lionel"
+command = " "
+while command != "exit"
+  puts "Enter a command to control your dragon:"
+  puts "Your options:"
+  puts " 'feed' \n 'walk' \n 'put to bed' \n 'rock' \n 'exit'"
+  command = gets.chomp
+  if command == "feed"
+    pet.feed
+  elsif command == "walk"
+    pet.walk
+  elsif command == "put to bed"
+    pet.put_to_bed
+  elsif command == "rock"
+    pet.rock
+  elsif command == "exit"
+    puts "You say goodbye to Lionel. \n Bye-bye."
+    exit
+  else
+    puts "Command not recognized, please re-enter."
+  end
+end
